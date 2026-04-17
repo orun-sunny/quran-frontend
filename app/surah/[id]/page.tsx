@@ -8,9 +8,12 @@ interface PageProps {
 
 async function getSurah(id: string): Promise<Surah | null> {
   try {
-    const res = await fetch(`http://localhost:5000/api/surahs/${id}`, {
-      cache: "force-cache",
-    });
+    const res = await fetch(
+      `https://quran-web-api-kappa.vercel.app/api/surahs/${id}`,
+      {
+        cache: "force-cache",
+      },
+    );
     if (!res.ok) return null;
     const data = await res.json();
     if (!data || !data.surah_info) return null;
@@ -32,7 +35,9 @@ async function getSurah(id: string): Promise<Surah | null> {
 
 export async function generateStaticParams() {
   try {
-    const res = await fetch("http://localhost:5000/api/surahs");
+    const res = await fetch(
+      "https://quran-web-api-kappa.vercel.app/api/surahs",
+    );
     const data = await res.json();
     return (data || []).map((s: any) => ({ id: String(s.id) }));
   } catch {

@@ -4,9 +4,12 @@ import SurahListClient from "@/components/SurahListClient";
 
 async function getSurahs(): Promise<Surah[]> {
   try {
-    const res = await fetch("http://localhost:5000/api/surahs", {
-      cache: "force-cache",
-    });
+    const res = await fetch(
+      "https://quran-web-api-kappa.vercel.app/api/surahs",
+      {
+        cache: "force-cache",
+      },
+    );
     if (!res.ok) return [];
     const data = await res.json();
     return (data || []).map((s: any) => ({
