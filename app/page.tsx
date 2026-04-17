@@ -26,12 +26,7 @@ export default async function Home() {
   return (
     <div className="min-h-screen bg-gray-50 px-4 py-8">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-8 flex items-center justify-between border-b border-gray-100 pb-4">
-          <h1 className="font-serif text-2xl font-medium tracking-tight">
-            Al<span className="text-emerald-600">Quran</span>
-          </h1>
-          <span className="text-sm text-gray-400">114 Surahs</span>
-        </div>
+        {/* Hero & Surah List */}
 
         {/* Client component handles search*/}
         <SurahListClient surahs={surahs} />

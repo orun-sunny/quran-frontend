@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Surah, ApiResponse } from "@/types/quran";
-
+import SurahDetailClient from "@/components/SurahDetailClient";
 interface PageProps {
   params: Promise<{ id: string }>;
 }
@@ -76,27 +76,8 @@ export default async function SurahPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* Ayahs */}
-        <div className="space-y-3">
-          {(surah.ayahs ?? []).map((ayah) => (
-            <div
-              key={ayah.numberInSurah}
-              className="rounded-xl border border-gray-100 bg-white p-5"
-            >
-              <p className="mb-1 text-xs font-medium text-gray-300">
-                Verse {ayah.numberInSurah}
-              </p>
-              <p className="mb-3 text-right text-2xl leading-loose text-gray-800">
-                {ayah.text}
-              </p>
-              {ayah.translation && (
-                <p className="text-sm leading-relaxed text-gray-500">
-                  {ayah.translation}
-                </p>
-              )}
-            </div>
-          ))}
-        </div>
+        {/* Client-side Ayahs and Settings */}
+        <SurahDetailClient surah={surah} />
       </div>
     </div>
   );
