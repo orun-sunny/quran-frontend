@@ -48,7 +48,7 @@ export default async function SurahPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-gray-50 px-4 py-8">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-7xl">
         <Link
           href="/"
           className="mb-6 inline-flex items-center gap-1 text-sm text-gray-400 hover:text-gray-700"
